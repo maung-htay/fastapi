@@ -29,5 +29,12 @@
 
 # git remote
 # git push heroku main
+# heroku logs -t
+# https://devcenter.heroku.com/articles/heroku-postgresql -> for .env file
+# heroku addons:create heroku-postgresql:hobby-dev
 
+# after that 
+# heroku ps:restart
+# heroku apps:info fastapi-mghtay
 
+# heroku run "alembic upgrade head"

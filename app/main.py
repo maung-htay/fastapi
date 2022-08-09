@@ -9,11 +9,7 @@ from .routers import post, user, auth, vote
 
 app = FastAPI()
 
-origins = [
-    "https://www.google.com",
-    "http://localhost",
-    "http://localhost:8000",
-]
+origins = ["*"]
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,

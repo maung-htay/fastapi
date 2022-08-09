@@ -20,3 +20,14 @@
 # Git 
 # git hub issue
 # https://qiita.com/takapon21/items/13f00cb2e48d8c1cc115
+
+# heroku
+# heroku --version
+# heroku login
+# heroku create --help
+# heroku create fastapi-mghtay
+
+# git remote
+# git push heroku main
+
+

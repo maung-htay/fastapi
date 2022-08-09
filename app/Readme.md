@@ -18,3 +18,5 @@
 # alembic upgrade head  
 
 # Git 
+# git hub issue
+# https://qiita.com/takapon21/items/13f00cb2e48d8c1cc115

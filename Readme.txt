@@ -178,3 +178,4 @@ if you want to delete -> sudo ufw delete allow http
 # Docker 
 postgress sql backup and restory 
 https://stackoverflow.com/questions/24718706/backup-restore-a-dockerized-postgresql-database
+docker-compose -f docker_file name

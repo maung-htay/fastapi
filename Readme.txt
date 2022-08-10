@@ -16,6 +16,8 @@
 # alembic revision --autogenerate -m "auto generate"
 # alembic revision --autogenerate -m "auto generate1
 # alembic upgrade head  
+# eg ->  op.create_table('users',
+    sa.Column('id', sa.Integer(), nullable=False))
 
 # Git 
 # git hub issue
@@ -173,9 +175,6 @@ sudo ufw status
 if you want to delete -> sudo ufw delete allow http
 
 
-
-
-
-
-
-
+# Docker 
+postgress sql backup and restory 
+https://stackoverflow.com/questions/24718706/backup-restore-a-dockerized-postgresql-database

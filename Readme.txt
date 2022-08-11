@@ -179,3 +179,19 @@ if you want to delete -> sudo ufw delete allow http
 postgress sql backup and restory 
 https://stackoverflow.com/questions/24718706/backup-restore-a-dockerized-postgresql-database
 docker-compose -f docker_file name
+
+# Testing
+pytest
+https://docs.pytest.org/en/7.1.x/
+pip install pytest
+Need to create __init__.py file 
+Need to start function with test 
+pytest -v 
+pytest -v -s 
+pytest -q ( show percent)
+
+# Usint TestClient
+pytest -v -s specified_filename.py
+to remove warnings
+-> pytest --disable-warnings
+pytest -v python_file -s -x 

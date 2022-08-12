@@ -23,9 +23,7 @@ app.include_router(user.router)
 app.include_router(auth.router)
 app.include_router(vote.router)
 
+
 @app.get("/")
 async def root():
-   return {"message": "Hello World Docker BindMouth Ok"}
-
-
-
+    return {"message": "Hello World Docker BindMouth Ok"}

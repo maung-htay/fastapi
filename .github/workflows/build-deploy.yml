@@ -68,4 +68,22 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
       - name: Image diget
-        run: echo ${{ steps.docker_build.outputs.diget }}    
+        run: echo ${{ steps.docker_build.outputs.diget }}   
+
+      # to ubuntu
+      # https://github.com/marketplace/actions/ssh-remote-commands
+      # https://github.com/maung-htay/fastapi/settings/environments
+      # for password -> echo
+      # firstly need to config on production
+      # - name: Running ubuntu 
+      #   uses: appleboy/ssh-action@master
+      #   with:
+      #     host: ${{ secrets.HOST }}
+      #     username: ${{ secrets.USERNAME }}
+      #     password: ${{ secrets.PASSWORD }}
+      #     # port: ${{ secrets.PORT }}
+      #     script: | 
+      #       cd app/src
+      #       git pull 
+      #       sudo systemctl restart api
+      #       echo ${{ secrets.PROD_PASSWORD }} | sudo -S systemctl restart api 

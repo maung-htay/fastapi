@@ -7,7 +7,6 @@ from .configs import settings
 from fastapi.security import OAuth2PasswordBearer
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
-print("oauth2 -> ", oauth2_scheme)
 
 # to get a string like this run:
 # openssl rand -hex 32

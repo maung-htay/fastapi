@@ -4,7 +4,9 @@ from sqlalchemy.orm import sessionmaker
 from .configs import settings
 
 # SQLALCHEMY_DATABASE_URL = "sqlite:///./sql_app.db"
-SQLALCHEMY_DATABASE_URL = f"postgresql://{settings.database_username}:{settings.database_password}@{settings.database_hostname}/{settings.database_name}"
+SQLALCHEMY_DATABASE_URL = f"postgresql://{settings.database_username}:" \
+                          f"{settings.database_password}@" \
+                          f"{settings.database_hostname}/{settings.database_name}"
 
 engine = create_engine(
     # SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
@@ -13,6 +15,7 @@ engine = create_engine(
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()
+
 
 # Dependency
 def get_db():

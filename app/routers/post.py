@@ -7,6 +7,7 @@ from typing import List, Optional
 
 router = APIRouter(prefix="/post", tags=["Post"])
 
+
 # payload: dict = Body(...)
 # limit is query param value
 # %20 is space
@@ -14,11 +15,11 @@ router = APIRouter(prefix="/post", tags=["Post"])
 @router.get("/", response_model=List[schemas.PostOut])
 # @router.get("/")
 def get_posts(
-    db: Session = Depends(get_db),
-    current_user: int = Depends(oauth2.get_current_user),
-    limit: int = 10,
-    skip: int = 0,
-    search: Optional[str] = "",
+        db: Session = Depends(get_db),
+        current_user: int = Depends(oauth2.get_current_user),
+        limit: int = 10,
+        skip: int = 0,
+        search: Optional[str] = "",
 ):
     # post = db.query(models.Post).filter(models.Post.owner_id == current_user.id).limit(limit).offset(skip).all()
     post = (
@@ -42,11 +43,10 @@ def get_posts(
 
 @router.get("/{id}", response_model=schemas.PostOut)
 def get_post_byid(
-    id: int,
-    db: Session = Depends(get_db),
-    current_user: int = Depends(oauth2.get_current_user),
+        id: int,
+        db: Session = Depends(get_db),
+        current_user: int = Depends(oauth2.get_current_user),
 ):
-
     post = (
         db.query(models.Post, func.count(models.Vote.post_id).label("votes"))
         .join(models.Vote, models.Vote.post_id == models.Post.id, isouter=True)
@@ -69,9 +69,9 @@ def get_post_byid(
 
 @router.delete("/{id}")
 def post_delete(
-    id: int,
-    db: Session = Depends(get_db),
-    current_user: int = Depends(oauth2.get_current_user),
+        id: int,
+        db: Session = Depends(get_db),
+        current_user: int = Depends(oauth2.get_current_user),
 ):
     post = db.query(models.Post).filter(models.Post.id == id)
     if not post.first():
@@ -91,10 +91,10 @@ def post_delete(
 
 @router.put("/{id}", response_model=schemas.Post)
 def post_update(
-    id: int,
-    updated_post: schemas.PostCreate,
-    db: Session = Depends(get_db),
-    current_user: int = Depends(oauth2.get_current_user),
+        id: int,
+        updated_post: schemas.PostCreate,
+        db: Session = Depends(get_db),
+        current_user: int = Depends(oauth2.get_current_user),
 ):
     post_query = db.query(models.Post).filter(models.Post.id == id)
     post = post_query.first()
@@ -116,9 +116,9 @@ def post_update(
 
 @router.post("/", status_code=status.HTTP_201_CREATED, response_model=schemas.Post)
 def post_sqlalchemy(
-    post: schemas.PostCreate,
-    db: Session = Depends(get_db),
-    current_user: int = Depends(oauth2.get_current_user),
+        post: schemas.PostCreate,
+        db: Session = Depends(get_db),
+        current_user: int = Depends(oauth2.get_current_user),
 ):
     # new_post = models.Post(title=post.title, content=post.content)
     print("msg -> ", current_user.id)
